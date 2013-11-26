@@ -1,10 +1,8 @@
-
 require 'matrix'
-require 'Fraccion.rb'
-require 'gcd'
 
-#Clase padre Matriz
 class Matriz
+
+
         attr_reader :m, :f, :c
         
         def initialize(m)
@@ -21,7 +19,7 @@ class Matriz
 
 		  end
 
-	#Suma entre dos matrices
+
         def +(other)         
                    suma = @m
                     for i in 0...@f do
@@ -32,7 +30,6 @@ class Matriz
                     return suma
             end
 
-	#Multiplicacion entre dos matrices.
         def *(other)
 
 						z = Array.new
@@ -54,8 +51,8 @@ class Matriz
                     end        
             return z
     end
-	#Resta entre dos matrices
-	def -(other)
+	
+	 def -(other)
 
 		resta = @m
                     for i in 0...@f do
@@ -67,7 +64,37 @@ class Matriz
              return resta
       end
 
+	 def /(other)
+		
+		
+
+		div = @m * other
+		
+		puts "Division"
+
+		div.each do |@f|
+        puts @f.join(" ")
+		end
+		
+	end
+
+	def to_s
+
+  		aux = ""
+      i = 0
+      while (i < @f)
+      	j = 0
+         while (j < @c)
+         	aux += "#{@m[i][j]}\t"
+            j += 1
+         end
+         aux += "\n"
+         i += 1
+      end
+      aux
+
+
+	end
 
 end
-
 

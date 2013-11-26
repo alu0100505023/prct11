@@ -2,7 +2,6 @@ require "matriz.rb"
 
 class Matriz_densa < Matriz
 
-	# Operacion de la suma en la matriz densa. Realiza la operacion entre dos matrices densa y una densa con una dispersa.
         def +(other)
            
 			  
@@ -28,7 +27,7 @@ class Matriz_densa < Matriz
 			  end
         end
 
-	# Operacion de la resta en la matriz densa. Realiza la operacion entre dos matrices densa y una densa con una dispersa.
+
         def -(other)
           
            case other
@@ -53,7 +52,7 @@ class Matriz_densa < Matriz
 			  end
         end
 
-	# Operación de la multiplicación en la matriz densa. Realiza la operacion entre dos matrices densa y una densa con una dispersa.
+
         def *(other)				
 		  		case other
 				when Matriz_densa
@@ -115,7 +114,7 @@ class Matriz_densa < Matriz
                 return w       
         end
         
-	# Devuelve el máximo de una matriz densa
+
         def max
                 
                 maximo = @m[0][0].to_f
@@ -130,7 +129,7 @@ class Matriz_densa < Matriz
 
         end
 
-	# Devuelve el minimo de una matriz densa
+
         def min
 
                 minimo = @m[0][0].to_f

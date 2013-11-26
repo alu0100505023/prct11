@@ -2,7 +2,6 @@ require 'Fraccion.rb'
 require 'matriz.rb'
 require "matrix"
 
-#Clase que se encarga de la creacion de las columnas y la mezcla
 class SparseVector
     attr_reader :vector
 
@@ -20,12 +19,10 @@ class SparseVector
     end
 end
 
-#Clase que se encarga de crear el hash
 class SparseMatrix < Matriz
 
     attr_reader :matrix
 
-    # Inicializador propio de la clase
     def initialize(h = {})
         @matrix = Hash.new({})
         for k in h.keys do
@@ -37,12 +34,10 @@ class SparseMatrix < Matriz
         end
     end
 
-    # Obtener un valor de la matriz dada una posicion
     def [](i)
         @matrix[i]
     end
 
-    # Devuelve la columna con el hash
     def col(j)
         c = {}
         for r in @matrix.keys do
@@ -51,7 +46,6 @@ class SparseMatrix < Matriz
         SparseVector.new c
     end
 
-	#Comprobacion de la dispersion
         def comprobar
                 contar = 0
                 contartotal = 0
@@ -69,8 +63,7 @@ class SparseMatrix < Matriz
                          "La matriz no es dispersa"
                 end
         end
-	
-	#Imprime la matriz dispersa
+
         def mostrar
         for r in @matrix.keys do
                                   for j in @matrix[r].vector.keys do
@@ -79,8 +72,7 @@ class SparseMatrix < Matriz
                                 puts
         end
         end
-
-	# Operacion de la suma en la matriz dispersa. Realiza la operacion entre dos matrices dispersa y una dispersa con una densa    
+        
         def +(other)
 			  case other
 			  when Matriz_Dispersa
@@ -118,8 +110,6 @@ class SparseMatrix < Matriz
 					raise TypeError.new("No se puede pasar #{other.inspect} a Matriz")
 			  end
         end
-	
-	# Operacion de la resta en la matriz dispersa. Realiza la operacion entre dos matrices dispersa y una dispersa con una densa
         def -(other)
 			  case other
 			  when Matriz_Dispersa
@@ -158,7 +148,6 @@ class SparseMatrix < Matriz
 
         end
 
-	# Operacion de la multiplicacion en la matriz dispersa. Realiza la operacion entre dos matrices dispersa y una dispersa con una densa
         def *(other) 
         
 				case other
@@ -182,13 +171,21 @@ class SparseMatrix < Matriz
                     end
 							mul << mul_f
                 end
-
+=begin        
+                for r in @matrix.keys do
+                   for j in @matrix[r].vector.keys do
+                      print "  #{mul[r][j]}  "
+                   end
+                   puts
+        			end
+=end
 					return mul
 			  when Matriz_densa
 					raise ArgumentError, "Las columnas de una matriz no coinciden con las filas de la otra." unless @matrix[1].vector.size == other.f
 					sumatotal = 0
                 mul = Array.new                
 
+                #for i in @matrix.keys do
 					  1.upto(@matrix.size) do |i|
                         mul_f = Array.new
                      #for j in @matrix[i].vector.keys do
@@ -203,15 +200,20 @@ class SparseMatrix < Matriz
                     end
 							mul << mul_f
                 end 
-
-
+=begin       
+                for r in @matrix.keys do
+                   for j in @matrix[r].vector.keys do
+                      print "  #{mul[r][j]}  "
+                   end
+                   puts
+        			end
+=end
 					return mul
 			  else
 				  raise TypeError.new("No se puede pasar #{other.inspect} a Matriz")
 			  end
         end
 
-	# Obtención del maximo de una matriz dispersa
         def max
                    
                 maximo = @matrix[1].vector[1]
@@ -236,7 +238,6 @@ class SparseMatrix < Matriz
 			
 		  end
 
-	# Obtención del maximo de una matriz dispersa
         def min
 
            minimo = @matrix[1].vector[1]
@@ -254,14 +255,12 @@ class SparseMatrix < Matriz
 					return minimo
 
         end
-	
-	#Metodo coerce
+
         def coerce(other)
                 [other,self]
         end
 end
 
-#Clase dispera heredada de SparseMatrix
 class Matriz_Dispersa < SparseMatrix
 
 end
