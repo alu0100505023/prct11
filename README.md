@@ -13,22 +13,24 @@ En la nueva práctica se pide implementar dos métodos max y min que devuelvan e
 
 El árbol de directorios queda establecido de la siguiente manera:
 
-prct10
 ├── bin
 │   └── t50_matriz_dispersa_densa
-├── Gemfile
 ├── lib
 │   ├── Fraccion.rb
+│   ├── gcd.rb
 │   ├── matriz_densa.rb
 │   ├── matriz_dispersa.rb
 │   ├── matriz.rb
+│   ├── matriz.rb~
 │   ├── t50_matriz_dispersa_densa
 │   │   └── version.rb
-│   ├── t50_matriz_dispersa_densa.rb
+│   └── t50_matriz_dispersa_densa.rb
 ├── LICENSE.txt
 ├── Rakefile
 ├── README.md
-└── t50_matriz_dispersa_densa.gemspec
+├── t50_matriz_dispersa_densa.gemspec
+└── test
+    └── tc_matrix.rb
 
 
 El programa esta en la ruta /lib/t50_matriz_dispersa_densa.rb
@@ -54,7 +56,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Realiza un include de la gema para cargar la gema correctamente. 
 
 ## Contributing
 
