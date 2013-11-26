@@ -20,7 +20,6 @@ class SparseVector
 end
 
 #Clase que se encarga de crear el hash
-
 class SparseMatrix < Matriz
 
     attr_reader :matrix
@@ -77,8 +76,7 @@ class SparseMatrix < Matriz
         end
         end
 
-# Operacion de la suma en la matriz dispersa. Realiza la operacion entre dos matrices dispersa y una dispersa con una densa
-        
+	# Operacion de la suma en la matriz dispersa. Realiza la operacion entre dos matrices dispersa y una dispersa con una densa    
         def +(other)
 			  case other
 			  when Matriz_Dispersa

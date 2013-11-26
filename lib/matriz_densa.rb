@@ -94,26 +94,6 @@ class Matriz_densa < Matriz
                 end
                 
         end
-
-        def /(other)
-        
-                w = Array.new
-                for i in 0...@f do
-                   w[i] = Array.new
-                   for j in 0...@c do
-                        w[i][j] = 0
-                   end
-                end
-
-                for i in 0...@f do
-                        for j in 0...@c do
-                                    for k in 0...@f - 1 do
-                                        w[i][j] += @m[i][k] * other.m[i][j]
-                                    end
-                        end
-                    end
-                return w       
-        end
         
 	# Devuelve el maximo de una matriz densa
         def max
