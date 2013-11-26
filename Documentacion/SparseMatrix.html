@@ -220,7 +220,7 @@
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 28</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">h</span> = {})
     <span class="ruby-ivar">@matrix</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>({})
     <span class="ruby-keyword">for</span> <span class="ruby-identifier">k</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">keys</span> <span class="ruby-keyword">do</span>
@@ -267,68 +267,58 @@ entre dos matrices dispersa y una dispersa con una densa</p>
             
             <div class="method-source-code" id="2A-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 158</span>
-        <span class="ruby-keyword">def</span> *(<span class="ruby-identifier">other</span>) 
-        
-                                <span class="ruby-keyword">case</span> <span class="ruby-identifier">other</span>
-                                <span class="ruby-keyword">when</span> <span class="ruby-constant">Matriz_Dispersa</span>
-                                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Las columnas de una matriz no coinciden con las filas de la otra.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@matrix</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">matrix</span>.<span class="ruby-identifier">size</span>
-                <span class="ruby-identifier">sumatotal</span> = <span class="ruby-value">0</span>
-                <span class="ruby-identifier">mul</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>                
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 162</span>
+<span class="ruby-keyword">def</span> *(<span class="ruby-identifier">other</span>) 
 
-               <span class="ruby-comment">#for i in @matrix.keys do</span>
-                                        <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
-                        <span class="ruby-identifier">mul_f</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-                     <span class="ruby-comment">#for j in @matrix[i].vector.keys do</span>
-                                                         <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
-                                <span class="ruby-comment">#for k in @matrix[i].vector.keys do</span>
-                                                                                         <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
-                                    <span class="ruby-identifier">suma</span> = <span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>[<span class="ruby-identifier">k</span>] * <span class="ruby-identifier">other</span>.<span class="ruby-identifier">matrix</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">vector</span>[<span class="ruby-identifier">j</span>]
-                                    <span class="ruby-identifier">sumatotal</span> = <span class="ruby-identifier">sumatotal</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">suma</span>;
-                                <span class="ruby-keyword">end</span>
-                                <span class="ruby-identifier">mul_f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sumatotal</span>
+                        <span class="ruby-keyword">case</span> <span class="ruby-identifier">other</span>
+                        <span class="ruby-keyword">when</span> <span class="ruby-constant">Matriz_Dispersa</span>
+                                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Las columnas de una matriz no coinciden con las filas de la otra.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@matrix</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">matrix</span>.<span class="ruby-identifier">size</span>
+        <span class="ruby-identifier">sumatotal</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">mul</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>                
+
+       <span class="ruby-comment">#for i in @matrix.keys do</span>
+                                <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">mul_f</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+             <span class="ruby-comment">#for j in @matrix[i].vector.keys do</span>
+                                                 <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+                        <span class="ruby-comment">#for k in @matrix[i].vector.keys do</span>
+                                                                                 <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">keys</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+                            <span class="ruby-identifier">suma</span> = <span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>[<span class="ruby-identifier">k</span>] * <span class="ruby-identifier">other</span>.<span class="ruby-identifier">matrix</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">vector</span>[<span class="ruby-identifier">j</span>]
+                            <span class="ruby-identifier">sumatotal</span> = <span class="ruby-identifier">sumatotal</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">suma</span>;
+                        <span class="ruby-keyword">end</span>
+                        <span class="ruby-identifier">mul_f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sumatotal</span>
+                        <span class="ruby-identifier">sumatotal</span> = <span class="ruby-value">0</span>
+            <span class="ruby-keyword">end</span>
+                                                <span class="ruby-identifier">mul</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">mul_f</span>
+        <span class="ruby-keyword">end</span>
+
+                                <span class="ruby-keyword">return</span> <span class="ruby-identifier">mul</span>
+                  <span class="ruby-keyword">when</span> <span class="ruby-constant">Matriz_densa</span>
+                                <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Las columnas de una matriz no coinciden con las filas de la otra.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@matrix</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">f</span>
                                 <span class="ruby-identifier">sumatotal</span> = <span class="ruby-value">0</span>
-                    <span class="ruby-keyword">end</span>
-                                                        <span class="ruby-identifier">mul</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">mul_f</span>
-                <span class="ruby-keyword">end</span>
-<span class="ruby-comment">                for r in @matrix.keys do
-                   for j in @matrix[r].vector.keys do
-                      print &quot;  #{mul[r][j]}  &quot;
-                   end
-                   puts
-                                end
-</span>                                        <span class="ruby-keyword">return</span> <span class="ruby-identifier">mul</span>
-                          <span class="ruby-keyword">when</span> <span class="ruby-constant">Matriz_densa</span>
-                                        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Las columnas de una matriz no coinciden con las filas de la otra.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@matrix</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">f</span>
-                                        <span class="ruby-identifier">sumatotal</span> = <span class="ruby-value">0</span>
-                <span class="ruby-identifier">mul</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>                
+        <span class="ruby-identifier">mul</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>                
 
-                <span class="ruby-comment">#for i in @matrix.keys do</span>
-                                          <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">size</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
-                        <span class="ruby-identifier">mul_f</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
-                     <span class="ruby-comment">#for j in @matrix[i].vector.keys do</span>
-                                                         <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">size</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
-                           <span class="ruby-comment">#for k in @matrix[i].vector.keys do</span>
-                                                                        <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">size</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
-                              <span class="ruby-identifier">suma</span> = <span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>[<span class="ruby-identifier">k</span>] * <span class="ruby-identifier">other</span>.<span class="ruby-identifier">m</span>[<span class="ruby-identifier">k</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>][<span class="ruby-identifier">j</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]
-                              <span class="ruby-identifier">sumatotal</span> = <span class="ruby-identifier">sumatotal</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">suma</span>;
-                           <span class="ruby-keyword">end</span>
-                           <span class="ruby-identifier">mul_f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sumatotal</span>
-                           <span class="ruby-identifier">sumatotal</span> = <span class="ruby-value">0</span>
-                    <span class="ruby-keyword">end</span>
-                                                        <span class="ruby-identifier">mul</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">mul_f</span>
-                <span class="ruby-keyword">end</span> 
-<span class="ruby-comment">                for r in @matrix.keys do
-                   for j in @matrix[r].vector.keys do
-                      print &quot;  #{mul[r][j]}  &quot;
-                   end
-                   puts
-                                end
-</span>                                        <span class="ruby-keyword">return</span> <span class="ruby-identifier">mul</span>
-                          <span class="ruby-keyword">else</span>
-                                  <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;No se puede pasar #{other.inspect} a Matriz&quot;</span>)
-                          <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span></pre>
+                                  <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">size</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">mul_f</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+             <span class="ruby-comment">#for j in @matrix[i].vector.keys do</span>
+                                                 <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">size</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+                   <span class="ruby-comment">#for k in @matrix[i].vector.keys do</span>
+                                                                <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">size</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+                      <span class="ruby-identifier">suma</span> = <span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">vector</span>[<span class="ruby-identifier">k</span>] * <span class="ruby-identifier">other</span>.<span class="ruby-identifier">m</span>[<span class="ruby-identifier">k</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>][<span class="ruby-identifier">j</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]
+                      <span class="ruby-identifier">sumatotal</span> = <span class="ruby-identifier">sumatotal</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">suma</span>;
+                   <span class="ruby-keyword">end</span>
+                   <span class="ruby-identifier">mul_f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sumatotal</span>
+                   <span class="ruby-identifier">sumatotal</span> = <span class="ruby-value">0</span>
+            <span class="ruby-keyword">end</span>
+                                                <span class="ruby-identifier">mul</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">mul_f</span>
+        <span class="ruby-keyword">end</span> 
+
+
+                                <span class="ruby-keyword">return</span> <span class="ruby-identifier">mul</span>
+                  <span class="ruby-keyword">else</span>
+                          <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;No se puede pasar #{other.inspect} a Matriz&quot;</span>)
+                  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
             </div><!-- 2A-source -->
             
           </div>
@@ -359,7 +349,7 @@ matrices dispersa y una dispersa con una densa</p>
             
             <div class="method-source-code" id="2B-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 80</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">+</span>(<span class="ruby-identifier">other</span>)
                   <span class="ruby-keyword">case</span> <span class="ruby-identifier">other</span>
                   <span class="ruby-keyword">when</span> <span class="ruby-constant">Matriz_Dispersa</span>
@@ -427,7 +417,7 @@ matrices dispersa y una dispersa con una densa</p>
             
             <div class="method-source-code" id="2D-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 119</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 123</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">-</span>(<span class="ruby-identifier">other</span>)
                   <span class="ruby-keyword">case</span> <span class="ruby-identifier">other</span>
                   <span class="ruby-keyword">when</span> <span class="ruby-constant">Matriz_Dispersa</span>
@@ -494,7 +484,7 @@ matrices dispersa y una dispersa con una densa</p>
             
             <div class="method-source-code" id="5B-5D-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 40</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">i</span>)
     <span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">i</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -521,13 +511,13 @@ matrices dispersa y una dispersa con una densa</p>
 
           <div class="method-description">
             
-            
+            <p>Metodo coerce</p>
             
 
             
             <div class="method-source-code" id="coerce-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 269</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 259</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">coerce</span>(<span class="ruby-identifier">other</span>)
         [<span class="ruby-identifier">other</span>,<span class="ruby-keyword">self</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -554,13 +544,13 @@ matrices dispersa y una dispersa con una densa</p>
 
           <div class="method-description">
             
-            
+            <p>Devuelve la columna con el hash</p>
             
 
             
             <div class="method-source-code" id="col-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 44</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">col</span>(<span class="ruby-identifier">j</span>)
     <span class="ruby-identifier">c</span> = {}
     <span class="ruby-keyword">for</span> <span class="ruby-identifier">r</span> <span class="ruby-keyword">in</span> <span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">keys</span> <span class="ruby-keyword">do</span>
@@ -591,13 +581,13 @@ matrices dispersa y una dispersa con una densa</p>
 
           <div class="method-description">
             
-            
+            <p>Comprobacion de la dispersion</p>
             
 
             
             <div class="method-source-code" id="comprobar-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 52</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 55</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">comprobar</span>
           <span class="ruby-identifier">contar</span> = <span class="ruby-value">0</span>
           <span class="ruby-identifier">contartotal</span> = <span class="ruby-value">0</span>
@@ -644,7 +634,7 @@ matrices dispersa y una dispersa con una densa</p>
             
             <div class="method-source-code" id="max-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 226</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 215</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">max</span>
            
         <span class="ruby-identifier">maximo</span> = <span class="ruby-ivar">@matrix</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">vector</span>[<span class="ruby-value">1</span>]
@@ -691,7 +681,7 @@ matrices dispersa y una dispersa con una densa</p>
             
             <div class="method-source-code" id="min-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 251</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 240</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">min</span>
 
    <span class="ruby-identifier">minimo</span> = <span class="ruby-ivar">@matrix</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">vector</span>[<span class="ruby-value">1</span>]
@@ -732,13 +722,13 @@ matrices dispersa y una dispersa con una densa</p>
 
           <div class="method-description">
             
-            
+            <p>Imprime la matriz dispersa</p>
             
 
             
             <div class="method-source-code" id="mostrar-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 70</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">mostrar</span>
 <span class="ruby-keyword">for</span> <span class="ruby-identifier">r</span> <span class="ruby-keyword">in</span> <span class="ruby-ivar">@matrix</span>.<span class="ruby-identifier">keys</span> <span class="ruby-keyword">do</span>
                           <span class="ruby-keyword">for</span> <span class="ruby-identifier">j</span> <span class="ruby-keyword">in</span> <span class="ruby-ivar">@matrix</span>[<span class="ruby-identifier">r</span>].<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">keys</span> <span class="ruby-keyword">do</span>

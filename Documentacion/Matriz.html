@@ -143,6 +143,8 @@
 
     <div id="description" class="description">
       
+<p>Clase padre <a href="Matriz.html">Matriz</a></p>
+
     </div><!-- description -->
 
     
@@ -234,7 +236,7 @@
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz.rb, line 9</span>
+<span class="ruby-comment"># File lib/matriz.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">m</span>)
         <span class="ruby-ivar">@m</span>=<span class="ruby-identifier">m</span>
         <span class="ruby-ivar">@f</span>=<span class="ruby-identifier">m</span>.<span class="ruby-identifier">size</span>
@@ -269,13 +271,13 @@
 
           <div class="method-description">
             
-            
+            <p>Multiplicacion entre dos matrices.</p>
             
 
             
             <div class="method-source-code" id="2A-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz.rb, line 34</span>
+<span class="ruby-comment"># File lib/matriz.rb, line 36</span>
     <span class="ruby-keyword">def</span> *(<span class="ruby-identifier">other</span>)
 
                                             <span class="ruby-identifier">z</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
@@ -320,13 +322,13 @@
 
           <div class="method-description">
             
-            
+            <p>Suma entre dos matrices</p>
             
 
             
             <div class="method-source-code" id="2B-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz.rb, line 24</span>
+<span class="ruby-comment"># File lib/matriz.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">+</span>(<span class="ruby-identifier">other</span>)         
            <span class="ruby-identifier">suma</span> = <span class="ruby-ivar">@m</span>
             <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-ivar">@f</span> <span class="ruby-keyword">do</span>
@@ -359,14 +361,14 @@
 
           <div class="method-description">
             
-            
+            <p>Resta entre dos matrices</p>
             
 
             
             <div class="method-source-code" id="2D-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz.rb, line 56</span>
-   <span class="ruby-keyword">def</span> <span class="ruby-operator">-</span>(<span class="ruby-identifier">other</span>)
+<span class="ruby-comment"># File lib/matriz.rb, line 58</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-operator">-</span>(<span class="ruby-identifier">other</span>)
 
           <span class="ruby-identifier">resta</span> = <span class="ruby-ivar">@m</span>
               <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-ivar">@f</span> <span class="ruby-keyword">do</span>

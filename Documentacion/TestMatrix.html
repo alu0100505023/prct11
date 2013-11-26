@@ -151,6 +151,8 @@
 
     <div id="description" class="description">
       
+<p>Test de pruebas unitarias</p>
+
     </div><!-- description -->
 
     
@@ -184,13 +186,13 @@
 
           <div class="method-description">
             
-            
+            <p>Carga de matrices para las pruebas</p>
             
 
             
             <div class="method-source-code" id="setup-source">
 <pre>
-<span class="ruby-comment"># File test/tc_matrix.rb, line 9</span>
+<span class="ruby-comment"># File test/tc_matrix.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
         <span class="ruby-comment">#Se especifican los hash a usar en las pruebas</span>
         <span class="ruby-ivar">@h</span> = <span class="ruby-constant">Matriz_Dispersa</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">33</span>, <span class="ruby-value">2</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">44</span>}, <span class="ruby-value">2</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">66</span>, <span class="ruby-value">2</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">77</span>}
@@ -231,13 +233,13 @@
 
           <div class="method-description">
             
-            
+            <p>Pruebas de calculo de maximo en una matriz densa</p>
             
 
             
             <div class="method-source-code" id="test_max_densa-source">
 <pre>
-<span class="ruby-comment"># File test/tc_matrix.rb, line 47</span>
+<span class="ruby-comment"># File test/tc_matrix.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_max_densa</span>
         <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">8</span>, <span class="ruby-ivar">@h6</span>.<span class="ruby-identifier">max</span>, <span class="ruby-string">&quot;Resultado Incorrecto&quot;</span> )
 <span class="ruby-keyword">end</span></pre>
@@ -264,13 +266,13 @@
 
           <div class="method-description">
             
-            
+            <p>Pruebas de calculo de maximo en una matriz dispersa</p>
             
 
             
             <div class="method-source-code" id="test_max_dispersa-source">
 <pre>
-<span class="ruby-comment"># File test/tc_matrix.rb, line 39</span>
+<span class="ruby-comment"># File test/tc_matrix.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_max_dispersa</span>
         <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">77</span>,<span class="ruby-value">12</span>), <span class="ruby-ivar">@h3</span>.<span class="ruby-identifier">max</span>, <span class="ruby-string">&quot;Resultado Incorrecto&quot;</span> )
 <span class="ruby-keyword">end</span></pre>
@@ -297,13 +299,13 @@
 
           <div class="method-description">
             
-            
+            <p>Pruebas de calculo de minimo en una matriz densa</p>
             
 
             
             <div class="method-source-code" id="test_min_densa-source">
 <pre>
-<span class="ruby-comment"># File test/tc_matrix.rb, line 51</span>
+<span class="ruby-comment"># File test/tc_matrix.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_min_densa</span>
         <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">3</span>, <span class="ruby-ivar">@h6</span>.<span class="ruby-identifier">min</span>, <span class="ruby-string">&quot;Resultado Incorrecto&quot;</span> )
 <span class="ruby-keyword">end</span></pre>
@@ -330,14 +332,14 @@
 
           <div class="method-description">
             
-            
+            <p>Pruebas de calculo de minimo</p>
             
 
             
             <div class="method-source-code" id="test_min_dispersa-source">
 <pre>
-<span class="ruby-comment"># File test/tc_matrix.rb, line 43</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_min_dispersa</span> <span class="ruby-comment">#mirar </span>
+<span class="ruby-comment"># File test/tc_matrix.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_min_dispersa</span>
         <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">66</span>,<span class="ruby-value">5</span>), <span class="ruby-ivar">@h3</span>.<span class="ruby-identifier">min</span>, <span class="ruby-string">&quot;Resultado Incorrecto&quot;</span> )
 <span class="ruby-keyword">end</span></pre>
             </div><!-- test_min_dispersa-source -->
@@ -363,13 +365,13 @@
 
           <div class="method-description">
             
-            
+            <p>Pruebas de multiplicacion entre dos matrices</p>
             
 
             
             <div class="method-source-code" id="test_multi_densa_dispersa-source">
 <pre>
-<span class="ruby-comment"># File test/tc_matrix.rb, line 35</span>
+<span class="ruby-comment"># File test/tc_matrix.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_multi_densa_dispersa</span>
         <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@h13</span>.<span class="ruby-identifier">m</span>, <span class="ruby-ivar">@h9</span>*<span class="ruby-ivar">@h10</span>, <span class="ruby-string">&quot;Resultado Incorrecto&quot;</span> )
 <span class="ruby-keyword">end</span></pre>
@@ -396,13 +398,13 @@
 
           <div class="method-description">
             
-            
+            <p>Pruebas de resta entre dos matrices</p>
             
 
             
             <div class="method-source-code" id="test_resta_densa_dispersa-source">
 <pre>
-<span class="ruby-comment"># File test/tc_matrix.rb, line 31</span>
+<span class="ruby-comment"># File test/tc_matrix.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_resta_densa_dispersa</span>
         <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@h12</span>.<span class="ruby-identifier">m</span>, <span class="ruby-ivar">@h9</span><span class="ruby-operator">-</span><span class="ruby-ivar">@h10</span>, <span class="ruby-string">&quot;Resultado Incorrecto&quot;</span> )
 <span class="ruby-keyword">end</span></pre>
@@ -429,13 +431,13 @@
 
           <div class="method-description">
             
-            
+            <p>Pruebas de suma entre dos matrices</p>
             
 
             
             <div class="method-source-code" id="test_suma_densa_dispersa-source">
 <pre>
-<span class="ruby-comment"># File test/tc_matrix.rb, line 27</span>
+<span class="ruby-comment"># File test/tc_matrix.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_suma_densa_dispersa</span>
         <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@h11</span>.<span class="ruby-identifier">m</span>, <span class="ruby-ivar">@h9</span><span class="ruby-operator">+</span><span class="ruby-ivar">@h10</span>, <span class="ruby-string">&quot;Resultado Incorrecto&quot;</span> )
 <span class="ruby-keyword">end</span></pre>

@@ -141,6 +141,8 @@
 
     <div id="description" class="description">
       
+<p>Clase que se encarga de la creacion de las columnas y la mezcla</p>
+
     </div><!-- description -->
 
     
@@ -202,7 +204,7 @@
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 8</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">h</span> = {})
     <span class="ruby-ivar">@vector</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
     <span class="ruby-ivar">@vector</span> = <span class="ruby-ivar">@vector</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">h</span>)
@@ -242,7 +244,7 @@
             
             <div class="method-source-code" id="5B-5D-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 13</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">i</span>)
     <span class="ruby-ivar">@vector</span>[<span class="ruby-identifier">i</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -275,7 +277,7 @@
             
             <div class="method-source-code" id="to_s-source">
 <pre>
-<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 17</span>
+<span class="ruby-comment"># File lib/matriz_dispersa.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
     <span class="ruby-ivar">@vector</span>.<span class="ruby-identifier">to_s</span>
 <span class="ruby-keyword">end</span></pre>

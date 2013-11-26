@@ -84,7 +84,7 @@ class Matriz_densa < Matriz
 				end
         end
 
-        
+        #Pasa la matriz a string.
         def to_s
                 for i in 0...@f do
                         for j in 0...@c do
