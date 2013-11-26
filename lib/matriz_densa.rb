@@ -2,6 +2,7 @@ require "matriz.rb"
 
 class Matriz_densa < Matriz
 
+	# Operacion de la suma en la matriz densa. Realiza la operacion entre dos matrices densa y una densa con una dispersa.
         def +(other)
            
 			  
@@ -10,8 +11,10 @@ class Matriz_densa < Matriz
 					raise ArgumentError, "Las matrices no son iguales en longitud." unless @f == other.f && @c == other.c
 		           r =@m
 		     
-		          for i in 0...@f do
-		                   for j in 0...@c do
+		          #for i in 0...@f do
+						0.upto(@f) do |i|
+		                   #for j in 0...@c do
+								 0.upto(@c) do |j|
 		                         r[i][j]=@m[i][j]+other.m[i][j]
 		                   end
 		          end
@@ -25,7 +28,7 @@ class Matriz_densa < Matriz
 			  end
         end
 
-
+	# Operacion de la resta en la matriz densa. Realiza la operacion entre dos matrices densa y una densa con una dispersa.
         def -(other)
           
            case other
@@ -33,8 +36,10 @@ class Matriz_densa < Matriz
 					  raise ArgumentError, "Las matrices no son iguales en longitud." unless @f == other.f && @c == other.c
 		           rs =@m
 		     
-		          for i in 0...@f do
-		                   for j in 0...@c do
+		          #for i in 0...@f do
+						@f.times do |i|
+		                   #for j in 0...@c do
+								 @c.times do |j|
 		                         rs[i][j]=@m[i][j]+other.m[i][j]
 		                   end
 		          end
@@ -48,7 +53,7 @@ class Matriz_densa < Matriz
 			  end
         end
 
-
+	# Operación de la multiplicación en la matriz densa. Realiza la operacion entre dos matrices densa y una densa con una dispersa.
         def *(other)				
 		  		case other
 				when Matriz_densa
@@ -60,9 +65,12 @@ class Matriz_densa < Matriz
                         z[i][j] = 0
                    end
                 end
-                for i in 0...@f do
-                        for j in 0...@c do
-                                    for k in 0...@f do
+                #for i in 0...@f do
+						0.upto(@f) do |i| 
+                        #for j in 0...@c do
+								0.upto(@c) do |j|
+                                    #for k in 0...@f do
+												0.upto(@f) do |k|
                                         z[i][j] += @m[i][k] * other.m[k][j]
                                     end
                         end
@@ -107,7 +115,7 @@ class Matriz_densa < Matriz
                 return w       
         end
         
-
+	# Devuelve el maximo de una matriz densa
         def max
                 
                 maximo = @m[0][0].to_f
@@ -122,7 +130,7 @@ class Matriz_densa < Matriz
 
         end
 
-
+	# Devuelve el minimo de una matriz densa
         def min
 
                 minimo = @m[0][0].to_f

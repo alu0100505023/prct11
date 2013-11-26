@@ -19,10 +19,13 @@ class SparseVector
     end
 end
 
+#Clase que se encarga de crear el hash
+
 class SparseMatrix < Matriz
 
     attr_reader :matrix
 
+    # Inicializador propio de la clase
     def initialize(h = {})
         @matrix = Hash.new({})
         for k in h.keys do
@@ -34,6 +37,7 @@ class SparseMatrix < Matriz
         end
     end
 
+    # Obtener un valor de la matriz dada una posicion
     def [](i)
         @matrix[i]
     end
@@ -72,15 +76,20 @@ class SparseMatrix < Matriz
                                 puts
         end
         end
+
+# Operacion de la suma en la matriz dispersa. Realiza la operacion entre dos matrices dispersa y una dispersa con una densa
         
         def +(other)
 			  case other
 			  when Matriz_Dispersa
 					raise ArgumentError, "Las matrices no son iguales en longitud." unless @matrix.size == other.matrix.size && @matrix[1].vector.size == other.matrix[1].vector.size
 					resul = Array.new
-		     		for r in @matrix.keys do
+					 @matrix.keys.times do |r|
+					 r = r + 1
+					  #for r in @matrix.keys do
 						resul_f = Array.new
-					  	for j in @matrix[r].vector.keys do        
+						 1.upto(@matrix[r].vector.keys) do |j|  
+						 #for j in @matrix[r].vector.keys do       
 					  		#print "  #{@matrix[r].vector[j] + other.matrix[r].vector[j]}  "
 							resul_f << @matrix[r].vector[j] + other.matrix[r].vector[j]
 					  	end
@@ -91,9 +100,11 @@ class SparseMatrix < Matriz
 			  when Matriz_densa
 					raise ArgumentError, "Las matrices no son iguales en longitud." unless @matrix.size == other.f && @matrix[1].vector.size == other.c
 					resul = Array.new
-					for r in 1..other.f do
+					1.upto(other.f) do |r|
+					 #for r in 1..other.f do
 						resul_f = Array.new
-               	for j in 1..other.c do
+						1.upto(other.c) do |j|
+						 #for j in 1..other.c do
                		#print "  #{@matrix[r].vector[j] + other.m[r - 1][j - 1]}"
 							resul_f << @matrix[r].vector[j] + other.m[r - 1][j - 1]
                	end
@@ -105,14 +116,18 @@ class SparseMatrix < Matriz
 					raise TypeError.new("No se puede pasar #{other.inspect} a Matriz")
 			  end
         end
+	
+	# Operacion de la resta en la matriz dispersa. Realiza la operacion entre dos matrices dispersa y una dispersa con una densa
         def -(other)
 			  case other
 			  when Matriz_Dispersa
 					raise ArgumentError, "Las matrices no son iguales en longitud." unless @matrix.size == other.matrix.size && @matrix[1].vector.size == other.matrix[1].vector.size
 					resul = Array.new
-		     		for r in @matrix.keys do
+		     		#for r in @matrix.keys do
+					 1.upto(@matrix.keys) do |r|
 						resul_f = Array.new
-					  	for j in @matrix[r].vector.keys do        
+					  	#for j in @matrix[r].vector.keys do  
+						 1.upto(@matrix[r].vector.keys) do |j|      
 					  		#print "  #{@matrix[r].vector[j] - other.matrix[r].vector[j]}  "
 							resul_f << @matrix[r].vector[j] - other.matrix[r].vector[j]
 					  	end
@@ -123,9 +138,11 @@ class SparseMatrix < Matriz
 			  when Matriz_densa
 					raise ArgumentError, "Las matrices no son iguales en longitud." unless @matrix.size == other.f && @matrix[1].vector.size == other.c
 					resul = Array.new
-					for r in 1..other.f do
+					#for r in 1..other.f do
+					1.upto(other.f) do |r|
 						resul_f = Array.new
-               	for j in 1..other.c do
+               	#for j in 1..other.c do
+						1.upto(other.c) do |j|
                		#print "  #{@matrix[r].vector[j] - other.m[r - 1][j - 1]}"
 							resul_f << @matrix[r].vector[j] - other.m[r - 1][j - 1]
                	end
@@ -139,6 +156,7 @@ class SparseMatrix < Matriz
 
         end
 
+	# Operacion de la multiplicacion en la matriz dispersa. Realiza la operacion entre dos matrices dispersa y una dispersa con una densa
         def *(other) 
         
 				case other
@@ -147,10 +165,13 @@ class SparseMatrix < Matriz
                 sumatotal = 0
                 mul = Array.new                
 
-                for i in @matrix.keys do
+               #for i in @matrix.keys do
+					1.upto(@matrix.keys) do |i|
                         mul_f = Array.new
-                     for j in @matrix[i].vector.keys do
-                                for k in @matrix[i].vector.keys do
+                     #for j in @matrix[i].vector.keys do
+							 1.upto(@matrix[i].vector.keys) do |j|
+                                #for k in @matrix[i].vector.keys do
+											 1.upto(@matrix[i].vector.keys) do |k|
                                     suma = @matrix[i].vector[k] * other.matrix[k].vector[j]
                                     sumatotal = sumatotal + suma;
                                 end
@@ -173,10 +194,13 @@ class SparseMatrix < Matriz
 					sumatotal = 0
                 mul = Array.new                
 
-                for i in @matrix.keys do
+                #for i in @matrix.keys do
+					  1.upto(@matrix.size) do |i|
                         mul_f = Array.new
-                     for j in @matrix[i].vector.keys do
-                           for k in @matrix[i].vector.keys do
+                     #for j in @matrix[i].vector.keys do
+							 1.upto(@matrix[i].vector.size) do |j|
+                           #for k in @matrix[i].vector.keys do
+									1.upto(@matrix[i].vector.size) do |k|
                               suma = @matrix[i].vector[k] * other.m[k - 1][j - 1]
                               sumatotal = sumatotal + suma;
                            end
@@ -199,12 +223,18 @@ class SparseMatrix < Matriz
 			  end
         end
 
+	# Obtención del maximo de una matriz dispersa
+
         def max
                    
                 maximo = @matrix[1].vector[1]
            
-                for i in @matrix.keys do
-                        for j in @matrix[i].vector.keys do
+                #for i in @matrix.keys do
+						@matrix.size.times do |i|
+								i = i + 1
+                        #for j in @matrix[i].vector.keys do
+								#@matrix[i].vector.keys do |j|
+								1.upto(@matrix[i].vector.size) do |j|
                            if @matrix[i].vector[j] > maximo
                               maximo = @matrix[i].vector[j]
                       end
@@ -219,12 +249,16 @@ class SparseMatrix < Matriz
 			
 		  end
 
+	# Obtención del maximo de una matriz dispersa
         def min
 
            minimo = @matrix[1].vector[1]
                 
-                for i in @matrix.keys do
-                        for j in @matrix[i].vector.keys do
+                #for i in @matrix.keys do
+						1.upto(@matrix.size) do |i|
+                        #for j in @matrix[i].vector.keys do
+								@matrix[i].vector.size.times do |j|
+								j = j + 1
                            if @matrix[i].vector[j] < minimo
                               minimo = @matrix[i].vector[j]
                       end
