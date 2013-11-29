@@ -24,6 +24,7 @@ class TestMatrix < Test::Unit::TestCase
 		@h11 = Matriz_densa.new(2,2,[[4,5],[2,Fraccion.new(7,2)]])
 		@h12 = Matriz_densa.new(2,2,[[-4,-5],[-2,Fraccion.new(-5,2)]])
 		@h13 = Matriz_densa.new(2,2,[[0,0],[Fraccion.new(1,1),Fraccion.new(3,2)]])
+		@m = Matriz_densa.new(2,3,[[1,2,9],[7,8,10]])
 	end
 	
 	#Pruebas de suma entre dos matrices
@@ -59,6 +60,11 @@ class TestMatrix < Test::Unit::TestCase
 	def test_min_densa
 		assert_equal(3, @h6.min, "Resultado Incorrecto" )
 	end
+	
+	def test_encontrar
+		assert_equal("[0,2]", @m.encontrar{ |e| e*e > 6}, "Resultado Incorrecto" )
+	end
+		
 
 end
 

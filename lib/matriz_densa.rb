@@ -124,5 +124,20 @@ class Matriz_densa < Matriz
                 minimo
 
         end
+	
+	def encontrar
+		
+		@f.times do |i|
+			@c.times do |j|
+				if yield @m[i][j]
+					puts "el valor es: [#{i},#{j}]"
+					return "[#{i},#{j}]"
+				end
+			end
+		end
+	end
 
 end
+
+M = Matriz_densa.new(2,3,[[1,2,9],[7,8,10]])
+M.encontrar{ |e| e*e > 6}
